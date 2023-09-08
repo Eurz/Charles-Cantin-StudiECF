@@ -1,7 +1,7 @@
 import { Suspense, cache } from 'react'
 import client from '../../../tina/__generated__/client'
-import PageSections from '../components/app/page'
 import Loader from '../components/Loader'
+import PageSections from '../components/app/pageSections'
 
 export default async function ServicesPage() {
     const data = await getData()

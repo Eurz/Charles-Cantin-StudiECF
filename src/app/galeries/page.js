@@ -1,6 +1,6 @@
 import { Suspense, cache } from 'react'
 import client from '../../../tina/__generated__/client'
-import PageSections from '../components/app/page'
+import PageSections from '../components/app/pageSections'
 import Loader from '../components/Loader'
 
 export default async function galleryPage() {

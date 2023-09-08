@@ -1,7 +1,7 @@
 // import Author from '../components/contact/Author'
 import { Suspense, cache } from 'react'
 import client from '../../../tina/__generated__/client'
-import PageSections from '../components/app/page'
+import PageSections from '../components/app/pageSections'
 import FormContact from '../components/contact/FormContact'
 import Author from '../components/contact/Author'
 import Loader from '../components/Loader'
