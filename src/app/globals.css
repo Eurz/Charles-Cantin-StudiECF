@@ -3,25 +3,65 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 71, 85, 94;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: #eeeeee;
+}
+
+@layer base {
+    * {
+        @apply box-content p-0 m-0;
+    }
+    h1 {
+        @apply text-4xl px-4 py-4 border-b border-t border-dashed border-main-blue mb-2;
+    }
+    h2 {
+        @apply text-xl;
+    }
+
+    .btn {
+        @apply bg-main-blue text-white py-2 px-2  rounded-md;
+    }
+
+    .input,
+    .form-select {
+        @apply bg-gray-300  py-2 px-2 rounded-md;
+    }
+    .input {
+        @apply w-11/12;
+    }
+    .form-label {
+        @apply w-14 md:w-32 lg:w-40 text-right;
+    }
+    .form-line {
+        @apply lg:flex  mb-2 gap-6 items-center;
+    }
+
+    a.active-link {
+        @apply bg-main-blue text-white;
+    }
+    /* a {
+        @apply sm:bg-neutral-100;
+    } */
+    select,
+    option {
+        @apply font-sans;
+    }
+}
+
+.select2-dropdown {
+    @apply text-xl rounded-b-lg shadow-md;
 }
