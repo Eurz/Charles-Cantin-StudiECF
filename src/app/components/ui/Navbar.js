@@ -30,7 +30,10 @@ export default function Navbar() {
             </Link>
         )
     })
-
+    function onHandleNav(e) {
+        e.stopPropagation()
+        setIsNavActive(!isNavActive)
+    }
     useEffect(() => {
         function handleResize() {
             if (window.innerWidth > 768) {
@@ -48,13 +51,7 @@ export default function Navbar() {
             window.removeEventListener('resize', handleResize)
             window.removeEventListener('click', onHandleNav)
         }
-    }, [isMobile])
-
-    function onHandleNav(e) {
-        // const el = document.querySelector('#dropdownNav')
-        e.stopPropagation()
-        setIsNavActive(!isNavActive)
-    }
+    })
 
     return (
         <div className="relative mr-4">

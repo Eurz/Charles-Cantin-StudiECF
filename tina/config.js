@@ -53,9 +53,25 @@ export default defineConfig({
                         }
                         return undefined
                     },
-                    defaultItem: {
-                        isPublished: false,
-                        displayTitle: true,
+                    defaultItem: () => {
+                        return {
+                            isPublished: false,
+                            displayTitle: true,
+                        }
+                    },
+                    beforeSubmit: async ({ form, cms, values }) => {
+                        const checkedData = {}
+                        console.log(form)
+
+                        if (values.seotitle == '') {
+                            checkedData.seotitle = values.title
+                        }
+
+                        checkedData.description = values.description.trim()
+                        const data = Object.assign(values, checkedData)
+
+                        return
+                        data
                     },
                 },
                 fields: [
@@ -66,6 +82,32 @@ export default defineConfig({
                         isTitle: true,
                         required: true,
                         placeholder: 'Entrez le titre de votre page',
+                    },
+                    {
+                        name: 'seotitle',
+                        label: 'Titre SEO ',
+                        type: 'string',
+                        placeholder: 'SEO title',
+                        ui: {
+                            // parse: (value) => {
+                            //     return value !== '' ? value : 'ttt'
+                            // },
+                            // format: (value, data) => {
+                            //     return value.toUpperCase()
+                            // },
+                        },
+                    },
+                    {
+                        name: 'description',
+                        label: 'Meta description',
+                        type: 'string',
+                        isBody: 'true',
+                        placeholder: 'Meta description pour le SEO',
+                        ui: {
+                            component: 'textarea',
+                            // parse: (val) => val && val.trim(),
+                            // format: (val) => val && val.trim(),
+                        },
                     },
                     {
                         name: 'displayTitle',

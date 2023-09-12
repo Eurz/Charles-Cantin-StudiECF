@@ -19,6 +19,7 @@ function FormContact() {
         const formData = new FormData(form)
 
         const formJson = Object.fromEntries(formData.entries())
+        console.log(formJson)
     }
     return (
         <form className="" onSubmit={handleSubmit}>

@@ -19,16 +19,8 @@ block:
         galleryItem: content/galleries/Baby.md
     _template: gallery
 displayTitle: true
+isPublished: true
+seotitle: Galerie photos
 ---
 
-
-
-
-
-
-
-
-
-
-
-
+Charles Cantin Photographe vous présente sa galerie photos de mariage, de couple, de famille etc

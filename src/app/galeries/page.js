@@ -1,7 +1,25 @@
-import { Suspense, cache } from 'react'
+import { Suspense } from 'react'
 import client from '../../../tina/__generated__/client'
 import PageSections from '../components/app/pageSections'
 import Loader from '../components/Loader'
+
+const getMeta = async () => {
+    const pageResponse = await client.queries.page({
+        relativePath: 'Galeries.md',
+    })
+
+    const { seotitle, description } = pageResponse.data.page
+    return { title: seotitle, description }
+}
+
+export async function generateMetadata({ params, searchParams }, parent) {
+    const data = await getMeta()
+
+    if (!data) {
+        return null
+    }
+    return data
+}
 
 export default async function galleryPage() {
     const data = await getData()
@@ -15,8 +33,7 @@ export default async function galleryPage() {
     )
 }
 
-export const revalidate = 0 // revalidate the data at most every hour
-export const getData = cache(async () => {
+export const getData = async () => {
     const pageResponse = await client.queries.page({
         relativePath: 'Galeries.md',
     })
@@ -25,4 +42,4 @@ export const getData = cache(async () => {
         query: pageResponse.query,
         variables: pageResponse.variables,
     }
-})
+}

@@ -28,7 +28,7 @@ function Galeries(props) {
         setData(galerieslist)
 
         return () => {}
-    }, [category])
+    }, [category, galerieslist])
 
     return (
         <>

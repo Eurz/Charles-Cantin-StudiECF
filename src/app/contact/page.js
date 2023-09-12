@@ -1,10 +1,28 @@
 // import Author from '../components/contact/Author'
-import { Suspense, cache } from 'react'
+import { Suspense } from 'react'
 import client from '../../../tina/__generated__/client'
 import PageSections from '../components/app/pageSections'
 import FormContact from '../components/contact/FormContact'
 import Author from '../components/contact/Author'
 import Loader from '../components/Loader'
+
+const getMeta = async () => {
+    const pageResponse = await client.queries.page({
+        relativePath: 'Contact.md',
+    })
+
+    const { seotitle, description } = pageResponse.data.page
+    console.log(pageResponse.data.page)
+    return { title: seotitle, description: description }
+}
+
+export async function generateMetadata({ params, searchParams }, parent) {
+    const data = await getMeta()
+    if (!data) {
+        return null
+    }
+    return data
+}
 
 export default async function contactPage() {
     const data = await getData()
@@ -28,8 +46,7 @@ export default async function contactPage() {
     )
 }
 
-export const revalidate = 0 // revalidate the data at most every hour
-export const getData = cache(async () => {
+export const getData = async () => {
     const pageResponse = await client.queries.page({
         relativePath: 'Contact.md',
     })
@@ -38,4 +55,4 @@ export const getData = cache(async () => {
         query: pageResponse.query,
         variables: pageResponse.variables,
     }
-})
+}
