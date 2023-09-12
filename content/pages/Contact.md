@@ -10,6 +10,7 @@ block:
       cas comparable avec celle du français standard.
     _template: simpletext
 displayTitle: true
+seotitle: sss
 ---
 
 Test
