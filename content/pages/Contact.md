@@ -1,5 +1,5 @@
 ---
-title: Contact
+title: Contact!
 block:
   - description: |
       Salut, On sait depuis longtemps que travailler avec du texte lisible et
