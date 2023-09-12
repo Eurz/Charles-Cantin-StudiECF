@@ -1,7 +1,7 @@
 ---
 title: Accueil
 block:
-  - headline: Charles Cantin
+  - headline: Charles Cantin!!
     tagline: Photographe
     description: >
       Le Lorem Ipsum est simplement du faux texte employé dans la composition et
@@ -10,6 +10,7 @@ block:
 displayTitle: false
 isPublished: true
 ---
+
 
 
 
