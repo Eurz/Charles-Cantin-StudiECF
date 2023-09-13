@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react'
+import sendEmail from '../../../../utils/send-email'
 
 function FormContact() {
     const [subject, setSubject] = useState('')
@@ -19,7 +20,7 @@ function FormContact() {
         const formData = new FormData(form)
 
         const formJson = Object.fromEntries(formData.entries())
-        console.log(formJson)
+        sendEmail(formData)
     }
     return (
         <form className="" onSubmit={handleSubmit}>

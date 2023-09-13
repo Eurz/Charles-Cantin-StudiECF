@@ -31,9 +31,8 @@ body {
     h2 {
         @apply text-xl;
     }
-
-    .btn {
-        @apply bg-main-blue text-white py-2 px-2  rounded-md;
+    p {
+        @apply mb-3;
     }
 
     .input,
@@ -59,6 +58,12 @@ body {
     select,
     option {
         @apply font-sans;
+    }
+    /* .btn {
+        @apply bg-main-blue text-white p-[5px] rounded-md;
+    } */
+    .btn {
+        @apply inline-block text-main-blue hover:bg-main-blue hover:text-white block p-2 text-base active-link;
     }
 }
 

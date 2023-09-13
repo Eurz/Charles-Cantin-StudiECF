@@ -61,7 +61,6 @@ export default defineConfig({
                     },
                     beforeSubmit: async ({ form, cms, values }) => {
                         const checkedData = {}
-                        console.log(form)
 
                         if (values.seotitle == '') {
                             checkedData.seotitle = values.title
@@ -211,12 +210,6 @@ export default defineConfig({
                 label: 'Gallerie',
                 name: 'gallery',
                 path: 'content/galleries',
-                // ui: {
-                //     router: ({ document }) => {
-                //         // navigate to the post that was clicked
-                //         return `/galeries`
-                //     },
-                // },
                 format: 'md',
                 fields: [
                     {

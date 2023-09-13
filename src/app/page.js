@@ -1,15 +1,23 @@
 // import { Suspense, cache } from 'react'
+import { notFound } from 'next/navigation'
 import client from '../../tina/__generated__/client'
 import PageSections from './components/app/pageSections'
-import Loader from './components/Loader'
 
-// export async function generateMetadata({ params }) {
-//     return {
-//         title: 'Accueil',
-//     }
-// }
-export const metadata = {
-    title: 'Accueil',
+const getMeta = async () => {
+    const pageResponse = await client.queries.page({
+        relativePath: 'Accueil.md',
+    })
+
+    const { seotitle, description } = pageResponse.data.page
+    return { title: seotitle, description }
+}
+
+export async function generateMetadata({ params, searchParams }, parent) {
+    const data = await getMeta()
+    if (!data) {
+        return null
+    }
+    return data
 }
 
 export default async function Home() {
@@ -17,9 +25,7 @@ export default async function Home() {
     return (
         <>
             {data.data.page.displayTitle && <h1>{data.data.page.title}</h1>}
-            {/* <Suspense fallback={<Loader />}> */}
             <PageSections pageData={data} />
-            {/* </Suspense> */}
         </>
     )
 }

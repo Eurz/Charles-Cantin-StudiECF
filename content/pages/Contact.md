@@ -10,14 +10,7 @@ block:
       cas comparable avec celle du français standard.
     _template: simpletext
 displayTitle: true
+seotitle: Contact
 ---
 
-
-
-
-
-
-
-
-
-
+Contacter Charles Cantin photographe pour prestations photo de mariage , baptême, famille, couple

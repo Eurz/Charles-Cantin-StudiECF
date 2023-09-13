@@ -5,15 +5,16 @@ import Loader from '../components/Loader'
 
 const getMeta = async () => {
     const pageResponse = await client.queries.page({
-        relativePath: 'Services.md',
+        relativePath: 'Galeries.md',
     })
 
     const { seotitle, description } = pageResponse.data.page
-    return { title: seotitle, description: description ?? 'dddd' }
+    return { title: seotitle, description }
 }
 
 export async function generateMetadata({ params, searchParams }, parent) {
     const data = await getMeta()
+
     if (!data) {
         return null
     }

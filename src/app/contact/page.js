@@ -1,4 +1,3 @@
-// import Author from '../components/contact/Author'
 import { Suspense } from 'react'
 import client from '../../../tina/__generated__/client'
 import PageSections from '../components/app/pageSections'
@@ -12,7 +11,6 @@ const getMeta = async () => {
     })
 
     const { seotitle, description } = pageResponse.data.page
-    console.log(pageResponse.data.page)
     return { title: seotitle, description: description }
 }
 
@@ -26,6 +24,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 export default async function contactPage() {
     const data = await getData()
+
     return (
         <>
             <h1>Contact</h1>

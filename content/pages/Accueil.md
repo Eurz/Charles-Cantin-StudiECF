@@ -9,17 +9,7 @@ block:
     _template: hero
 displayTitle: true
 isPublished: true
+seotitle: Accueil
 ---
 
-
-
-
-
-
-
-
-
-
-
-
-
+test

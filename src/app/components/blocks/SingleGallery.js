@@ -1,5 +1,5 @@
-import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function SingleGallery({ galleryItem }) {
     return (
@@ -7,13 +7,15 @@ function SingleGallery({ galleryItem }) {
             {galleryItem.picture?.map((picture, i) => {
                 return (
                     <div key={i}>
-                        <Image
-                            src={picture}
-                            width={600}
-                            height={600}
-                            alt="Texte de ma photo"
-                            className="w-full h-auto "
-                        />
+                        <Link href={`/picture${picture}`}>
+                            <Image
+                                src={picture}
+                                width={600}
+                                height={600}
+                                alt="Texte de ma photo"
+                                className="transition duration-[200ms] ease-in-out hover:scale-[110%]"
+                            />
+                        </Link>
                     </div>
                 )
             })}
