@@ -15,7 +15,7 @@ const branch =
     process.env.HEAD
 
 export default defineConfig({
-    branch: 'AddingSiteParameters',
+    branch,
     clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
     token: process.env.TINA_TOKEN, // Get this from tina.io
 
