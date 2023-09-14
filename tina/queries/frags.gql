@@ -1,0 +1,5 @@
+fragment LayoutQueryFragment on Query {
+    settings(relativePath: "Parametres-generaux.md") {
+        ...SettingsParts
+    }
+}

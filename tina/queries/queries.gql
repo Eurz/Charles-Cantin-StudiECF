@@ -1,0 +1,6 @@
+query getAuthor($relativePath: String!) {
+    ...LayoutQueryFragment
+    page(relativePath: $relativePath) {
+        ...PageParts
+    }
+}

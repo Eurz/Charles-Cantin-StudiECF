@@ -20,8 +20,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
     return data
 }
 
-export default async function Home() {
+export default async function HomePage() {
     const data = await getData()
+
     return (
         <>
             {data.data.page.displayTitle && <h1>{data.data.page.title}</h1>}

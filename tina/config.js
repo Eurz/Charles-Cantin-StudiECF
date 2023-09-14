@@ -9,16 +9,18 @@ import React from 'react'
 import { defineConfig, wrapFieldsWithMeta } from 'tinacms'
 
 // Your hosting provider likely exposes this as an environment variable
-const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
-// const branch =
-//     process.env.NEXT_PUBLIC_TINA_BRANCH ||
-//     process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
-//     process.env.HEAD
+// const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
+const branch =
+    process.env.NEXT_PUBLIC_TINA_BRANCH ||
+    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
+    process.env.HEAD
 
 export default defineConfig({
     branch: 'main',
-    clientId: '13e7f9c9-f2a3-4fbf-97b9-e23b161d2ed6', // Get this from tina.io
-    token: '7565e0aaec6cd16705bbb5e1eee912d7665d6ddd', // Get this from tina.io
+    clientId: null, // Get this from tina.io
+    token: null, // Get this from tina.io
+    // clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
+    // token: process.env.TINA_TOKEN, // Get this from tina.io
 
     build: {
         outputFolder: 'admin',
@@ -71,6 +73,13 @@ export default defineConfig({
 
                         return
                         data
+                    },
+                    slugify: (values) => {
+                        // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
+                        console.log(values)
+                        return `${values?.title}`
+                            .toLowerCase()
+                            .replace(/ /g, '-')
                     },
                 },
                 fields: [
@@ -296,6 +305,45 @@ export default defineConfig({
                         isBody: true,
                         type: 'string',
                         ui: { component: 'textarea' },
+                    },
+                ],
+            },
+            {
+                label: 'Paramètres',
+                name: 'settings',
+                path: 'content/settings',
+                format: 'md',
+                ui: { global: true },
+                fields: [
+                    {
+                        name: 'title',
+                        label: 'Titre',
+                        type: 'string',
+                        isTitle: true,
+                        required: true,
+                    },
+                    {
+                        name: 'header',
+                        label: 'Header',
+                        type: 'object',
+                        fields: [
+                            {
+                                name: 'name',
+                                label: 'Nom du site',
+                                type: 'string',
+                            },
+                            {
+                                name: 'tageLine',
+                                label: 'Slogan',
+                                type: 'string',
+                            },
+                            {
+                                name: 'homePage',
+                                label: "Page d'accueil",
+                                type: 'reference',
+                                collections: ['page'],
+                            },
+                        ],
                     },
                 ],
             },
