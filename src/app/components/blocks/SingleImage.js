@@ -4,12 +4,12 @@ import React from 'react'
 function SingleImage(props) {
     const { image } = props
     return (
-        <div className="mb-6" >
+        <div className="mb-6">
             <Image
                 src={image}
                 width={600}
                 height={600}
-                alt="salut"
+                alt="Text alt"
                 className="w-full"
             />
         </div>

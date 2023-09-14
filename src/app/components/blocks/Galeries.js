@@ -3,14 +3,14 @@ import React, { useEffect, useState } from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import SingleGallery from './SingleGallery'
-import FiltersList from '../../galeries/FiltersList'
+import FiltersList from '../galeries/FiltersList'
 
-function Galeries(props) {
-    const { body, galerieslist } = props
+function Galeries({ data }) {
+    const { body, galerieslist } = data
 
     const [category, setCategory] = useState('')
-    const [data, setData] = useState(galerieslist)
-    const categories = props.galerieslist.map((item) => {
+    const [filteredData, setFilteredData] = useState(galerieslist)
+    const categories = data.galerieslist.map((item) => {
         return item.title
     })
     const onHandleSelect = (e) => {
@@ -22,17 +22,17 @@ function Galeries(props) {
             const newGallery = galerieslist.filter((item) => {
                 return item.title === category
             })
-            setData(newGallery)
+            setFilteredData(newGallery)
             return
         }
-        setData(galerieslist)
+        setFilteredData(galerieslist)
 
         return () => {}
     }, [category, galerieslist])
 
     return (
         <>
-            <div data-tina-field={tinaField(props, 'body')} className="mb-10">
+            <div data-tina-field={tinaField(data, 'body')} className="mb-10">
                 <TinaMarkdown content={body} />
             </div>
 
@@ -43,7 +43,7 @@ function Galeries(props) {
                 />
             </div>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6">
-                {data.map((gallery, i) => {
+                {filteredData.map((gallery, i) => {
                     return <SingleGallery key={i} {...gallery} />
                 })}
             </div>

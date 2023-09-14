@@ -8,7 +8,6 @@ import React from 'react'
 
 import { defineConfig, wrapFieldsWithMeta } from 'tinacms'
 
-// Your hosting provider likely exposes this as an environment variable
 // const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || 'main'
 const branch =
     process.env.NEXT_PUBLIC_TINA_BRANCH ||
@@ -16,11 +15,9 @@ const branch =
     process.env.HEAD
 
 export default defineConfig({
-    branch: 'main',
-    clientId: null, // Get this from tina.io
-    token: null, // Get this from tina.io
-    // clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
-    // token: process.env.TINA_TOKEN, // Get this from tina.io
+    branch: 'AddingSiteParameters',
+    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
+    token: process.env.TINA_TOKEN, // Get this from tina.io
 
     build: {
         outputFolder: 'admin',
@@ -76,7 +73,6 @@ export default defineConfig({
                     },
                     slugify: (values) => {
                         // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
-                        console.log(values)
                         return `${values?.title}`
                             .toLowerCase()
                             .replace(/ /g, '-')
@@ -310,7 +306,7 @@ export default defineConfig({
             },
             {
                 label: 'Paramètres',
-                name: 'settings',
+                name: 'setting',
                 path: 'content/settings',
                 format: 'md',
                 ui: { global: true },

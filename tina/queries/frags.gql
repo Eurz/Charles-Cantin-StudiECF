@@ -1,5 +1,5 @@
-fragment LayoutQueryFragment on Query {
-    settings(relativePath: "Parametres-generaux.md") {
-        ...SettingsParts
-    }
-}
+# fragment LayoutQueryFragment on Setting {
+#     setting(relativePath: $relativePath) {
+#         ...SettingParts
+#     }
+# }

@@ -2,14 +2,14 @@ import { tinaField } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import SingleService from './SingleService'
 
-function Services(props) {
+function Services({ data }) {
     return (
         <>
-            <div data-tina-field={tinaField(props, 'body')} className="mb-10">
-                <TinaMarkdown content={props.body} />
+            <div data-tina-field={tinaField(data, 'body')} className="mb-10">
+                <TinaMarkdown content={data.body} />
             </div>
             <div className="grid gap-7 md:grid-cols-2 xl:grid-cols-3">
-                {props.servicelist?.map((service, i) => {
+                {data.servicelist?.map((service, i) => {
                     return <SingleService key={i} {...service} />
                 })}
             </div>

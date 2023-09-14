@@ -7,9 +7,9 @@ block:
       Le Lorem Ipsum est simplement du faux texte employé dans la composition et
       la mise en page avant impression
     _template: hero
-displayTitle: true
+displayTitle: false
 isPublished: true
 seotitle: Accueil
 ---
 
-test
+testons

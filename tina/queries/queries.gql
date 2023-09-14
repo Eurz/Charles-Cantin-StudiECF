@@ -1,5 +1,5 @@
-query getAuthor($relativePath: String!) {
-    ...LayoutQueryFragment
+query getPages($relativePath: String!) {
+    # ...LayoutQueryFragment
     page(relativePath: $relativePath) {
         ...PageParts
     }

@@ -2,13 +2,10 @@ import React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
-function SimpleText(props) {
+function SimpleText({ data }) {
     return (
-        <div
-            data-tina-field={tinaField(props, 'description')}
-            className="mb-12"
-        >
-            <TinaMarkdown content={props.description} />
+        <div data-tina-field={tinaField(data, 'description')} className="mb-12">
+            <TinaMarkdown content={data.description} />
         </div>
     )
 }

@@ -10,12 +10,25 @@ const nextConfig = {
 
         return config
     },
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/accueil',
+                permanent: true,
+            },
+        ]
+    },
     async rewrites() {
         return [
             {
                 source: '/admin',
                 destination: '/admin/index.html',
             },
+            // {
+            //     source: '/',
+            //     destination: '/accueil',
+            // },
         ]
     },
     images: {

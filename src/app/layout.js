@@ -23,18 +23,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className="">
-            <body className={`h-screen ${roboto400.className}`}>
-                <div className="flex flex-col h-full container mx-auto">
-                    <div className=" ">
-                        <Header />
-                    </div>
-                    <main className="flex flex-col grow">{children}</main>
-                    <div className=" ">
-                        <Footer />
-                    </div>
-                </div>
-            </body>
-        </html>
+        <>
+            <html lang="en" className="">
+                <body className={`h-screen ${roboto400.className}`}>
+                    {children}
+                </body>
+            </html>
+        </>
     )
 }
