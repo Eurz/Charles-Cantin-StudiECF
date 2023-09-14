@@ -32,8 +32,7 @@ export default async function page({ params }) {
                             <Author />
                         </div>
                         <div className="p-10">
-                            {/* {children} */}
-                            <div className="h-hull">
+                            <div className="">
                                 <Blocks data={data.page} />
                             </div>
                             <FormContact />

@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 
 function Member(props) {

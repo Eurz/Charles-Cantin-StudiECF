@@ -1,5 +1,3 @@
-import React from 'react'
-
 function DesktopNav({ links }) {
     return (
         <div className="hidden md:block">

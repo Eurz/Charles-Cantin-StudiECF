@@ -10,7 +10,11 @@ export const Blocks = (props) => {
             {props.data.block
                 ? props.data.block.map(function (block, i) {
                       return (
-                          <div key={i} data-tina-field={tinaField(block)}>
+                          <div
+                              key={i}
+                              //   className="h-full"
+                              data-tina-field={tinaField(block)}
+                          >
                               <Block {...block} />
                           </div>
                       )

@@ -1,4 +1,3 @@
-import React from 'react'
 import { tinaField } from 'tinacms/dist/react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 

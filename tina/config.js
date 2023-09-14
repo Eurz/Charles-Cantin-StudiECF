@@ -72,7 +72,6 @@ export default defineConfig({
                         data
                     },
                     slugify: (values) => {
-                        // Values is an object containing all the values of the form. In this case it is {title?: string, topic?: string}
                         return `${values?.title}`
                             .toLowerCase()
                             .replace(/ /g, '-')
@@ -92,14 +91,6 @@ export default defineConfig({
                         label: 'Titre SEO ',
                         type: 'string',
                         placeholder: 'SEO title',
-                        ui: {
-                            // parse: (value) => {
-                            //     return value !== '' ? value : 'ttt'
-                            // },
-                            // format: (value, data) => {
-                            //     return value.toUpperCase()
-                            // },
-                        },
                     },
                     {
                         name: 'description',
@@ -109,8 +100,6 @@ export default defineConfig({
                         placeholder: 'Meta description pour le SEO',
                         ui: {
                             component: 'textarea',
-                            // parse: (val) => val && val.trim(),
-                            // format: (val) => val && val.trim(),
                         },
                     },
                     {
