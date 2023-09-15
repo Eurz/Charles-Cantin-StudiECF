@@ -3,7 +3,12 @@
 # To get started with Next.js see: https://nextjs.org/docs/getting-started
 #
 
-name: Deploy Next.js site to Pages
+
+name: Build TinaCMS
+env:
+      TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
+      TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+run: npx tinacms build
 
 on:
   # Runs on pushes targeting the default branch
@@ -95,8 +100,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
         
-  name: Build TinaCMS
-    env:
-      TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
-      TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-    run: npx tinacms build
+  
