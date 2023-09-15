@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // output: 'standalone',
-    images: {
+    /*images: {
         // unoptimized: true,
         remotePatterns: [
             {
@@ -9,7 +9,7 @@ const nextConfig = {
                 hostname: 'assets.tina.io',
             },
         ],
-    },
+    },*/
 }
 
 module.exports = nextConfig
