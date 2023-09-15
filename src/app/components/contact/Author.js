@@ -4,7 +4,7 @@ import { roboto100 } from '@/app/fonts'
 
 export default async function Author() {
     const author = await getAuthor()
-    const { name, image, description, _sys } = author.data.author
+    const { image, description } = author.data.author
     return (
         <>
             {
