@@ -9,7 +9,7 @@ const nextConfig = {
                 hostname: 'assets.tina.io',
             },
         ],
-    },
+    },*/
 }
 
 module.exports = nextConfig
