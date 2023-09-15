@@ -7,15 +7,13 @@ function SingleGallery({ galleryItem }) {
             {galleryItem.picture?.map((picture, i) => {
                 return (
                     <div key={i}>
-                        <Link href={`/picture${picture}`}>
-                            <Image
-                                src={picture}
-                                width={600}
-                                height={600}
-                                alt="Texte de ma photo"
-                                className="transition duration-[200ms] ease-in-out hover:scale-[110%]"
-                            />
-                        </Link>
+                        <Image
+                            src={picture}
+                            width={600}
+                            height={600}
+                            alt="Texte de ma photo"
+                            className="transition duration-[200ms] ease-in-out hover:scale-[110%]"
+                        />
                     </div>
                 )
             })}
