@@ -76,8 +76,6 @@ jobs:
                       ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
             - name: Install dependencies
               run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-            # - name: Build with Next.js
-            #   run: ${{ steps.detect-package-manager.outputs.runner }} next build
             # - name: Static HTML export with Next.js
             #   run: ${{ steps.detect-package-manager.outputs.runner }} next export
             # - name: Upload artifact
@@ -89,7 +87,9 @@ jobs:
               # env:
               #     TINA_PUBLIC_CLIENT_ID: ${{ secrets.TINA_PUBLIC_CLIENT_ID }}
               #     TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
-              run: ${{ steps.detect-package-manager.outputs.runner }} tinacms build && next build
+              run: ${{ steps.detect-package-manager.outputs.runner }} tinacms build
+            - name: Build with Next.js
+              run: ${{ steps.detect-package-manager.outputs.runner }} next build
     # Deployment job
     deploy:
         environment:
