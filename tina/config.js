@@ -12,10 +12,11 @@ import { defineConfig, wrapFieldsWithMeta } from 'tinacms'
 const branch =
     process.env.NEXT_PUBLIC_TINA_BRANCH ||
     process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
-    process.env.HEAD
+    process.env.HEAD ||
+    'refactoring'
 
 export default defineConfig({
-    branch,
+    branch: 'refactoring',
     clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
     token: process.env.TINA_TOKEN, // Get this from tina.io
 
