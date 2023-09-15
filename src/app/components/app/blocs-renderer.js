@@ -3,6 +3,8 @@ import Services from '@/app/components/blocks/Services'
 import Galeries from '@/app/components/blocks/Galeries'
 import SimpleText from '@/app/components/blocks/SimpleText'
 import { tinaField } from 'tinacms/dist/react'
+import Member from '../blocks/Member'
+import SingleImage from '../blocks/SingleImage'
 
 export const Blocks = (props) => {
     return (
