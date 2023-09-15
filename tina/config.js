@@ -17,10 +17,8 @@ import { defineConfig, wrapFieldsWithMeta } from 'tinacms'
 
 export default defineConfig({
     branch: 'refactoring',
-    clientId: '4c5e6e0f-657c-4ef9-bcc0-0aac6f4088da', // Get this from tina.io
-    token: '67febb6ea4b910739600c1077cd21c3d6d236924', // Get this from tina.io
-    // clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
-    // token: process.env.TINA_TOKEN, // Get this from tina.io
+    clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID, // Get this from tina.io
+    token: process.env.TINA_TOKEN, // Get this from tina.io
 
     build: {
         outputFolder: 'admin',
